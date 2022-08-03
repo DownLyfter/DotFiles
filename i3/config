@@ -43,6 +43,8 @@ default_floating_border pixel 0
 exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers
 exec --no-startup-id picom -CGb
 exec_always discord
+exec_always '/home/matoi/.config/autorun/PreMid.AppImage'
+
 
 #fonts
 font pango:DejaVuSans, FontAwesome 8
