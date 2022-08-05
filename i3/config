@@ -185,6 +185,8 @@ assign [class="discord"] $ws3
 assign [class="Steam"] $ws10
 assign [class="steam_app_548430"] $ws9
 assign [class="osu!.exe"] $ws1
+assign [class="XIVLauncher.Core"] $ws1
+assign [class="ffxiv_dx11.exe"] #ws1
 # always floating
 for_window [window_role="About"] floating enable
 for_window [class='steam_app_1182480'] floating enable
