@@ -12,8 +12,8 @@
 XTerm.termName: xterm-256color
 
 ! set font and fontsize
-XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 16
+XTerm*faceName: Iosevka Term 
+XTerm*faceSize: 14
 
 !Settings
 ! disable fullscreen hotkey alt+enter (hotkey conflicts with weechat, midnight commander ...etc)

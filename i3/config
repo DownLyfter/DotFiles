@@ -40,7 +40,8 @@ exec xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
 gaps inner 10
 default_border pixel 4
 default_floating_border pixel 0
-exec --no-startup-id feh --bg-scale ~/.config/wallpapers
+exec --no-startup-id betterlockscreen -w dim 50
+#exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/
 exec --no-startup-id picom -CGb
 #exec_always --no-startup-id discord
 exec_always --no-startup-id pkill premid
@@ -64,7 +65,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id xterm
 # Start discord
 bindsym $mod+d exec --no-startup-id discord
 # Start firefox
@@ -144,16 +145,18 @@ bindsym Ctrl+Shift+s exec --no-startup-id maim --select | xclip -selection clipb
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+# workspace names
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:"
-set $ws5 "5:"
+set $ws5 "5:"
 set $ws6 "6:"
 set $ws7 "7:"
 set $ws8 "8:"
 set $ws9 "9:"
 set $ws10 "10:"
+set $hell "Hell"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -185,15 +188,26 @@ assign [class="discord"] $ws3
 assign [class="Steam"] $ws10
 assign [class="steam_app_548430"] $ws9
 assign [class="osu!.exe"] $ws1
-assign [class="XIVLauncher.Core"] $ws1
-assign [class="ffxiv_dx11.exe"] $ws1
+assign [class="XIVLauncher.Core"] $ws5
+assign [class="ffxiv_dx11.exe"] $ws5
+
+# open in hell
+assign [class="orgin.exe"] $hell
+
+# switch to hell
+bindsym $mod+Control+Shift+h exec "~/.hell.sh"
+bindsym $mod+Control+Shift+l move container to workspace $hell
+
 # always floating
 for_window [window_role="About"] floating enable
 for_window [class='steam_app_1182480'] floating enable
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
