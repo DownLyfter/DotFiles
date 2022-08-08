@@ -195,7 +195,7 @@ assign [class="ffxiv_dx11.exe"] $ws5
 assign [class="orgin.exe"] $hell
 
 # switch to hell
-bindsym $mod+Control+Shift+h exec "~/.hell.sh"
+bindsym $mod+Control+Shift+h exec "~/.config/scripts/hell.sh"
 bindsym $mod+Control+Shift+l move container to workspace $hell
 
 # always floating
