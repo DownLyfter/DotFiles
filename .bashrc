@@ -13,7 +13,12 @@ alias l.='exa -a | egrep "^\."'
 
 alias vim="nvim"
 #alias dayz =./home/matoi/GitClones/dztui/sztui.sh
+#https://gitlab.com/dwt1/bash-insulter
+if [ -f /etc/bash.command-not-found ]; then
+    . /etc/bash.command-not-found
+fi
 
 PS1='[\u@\h \W]\$ '
-clear && neofetch 
+clear && colorscript random
 echo "Arch Btw"
+
