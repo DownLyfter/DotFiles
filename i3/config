@@ -35,8 +35,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # autorun
-exec xrandr --output DP-4 --mode 1920x1080 --rate 240
-exec xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
+exec x--no-startup-id xrandr --output DP-4 --mode 1920x1080 --rate 240
+exec x--no-startup-id xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
 gaps inner 10
 default_border pixel 4
 default_floating_border pixel 0
@@ -195,7 +195,7 @@ assign [class="ffxiv_dx11.exe"] $ws5
 assign [class="orgin.exe"] $hell
 
 # switch to hell
-bindsym $mod+Control+Shift+h exec "~/.config/scripts/hell.sh"
+bindsym $mod+Control+Shift+h exec x--no-startup-id "~/.config/scripts/hell.sh"
 bindsym $mod+Control+Shift+l move container to workspace $hell
 
 # always floating
@@ -209,7 +209,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec x--no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
