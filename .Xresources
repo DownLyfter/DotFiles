@@ -4,7 +4,7 @@
 ! https://lukas.zapletalovi.com/2013/07/hidden-gems-of-xterm.html
 ! http://www.futurile.net/2016/06/14/xterm-setup-and-truetype-font-configuration/
 ! http://www.futurile.net/2016/06/15/xterm-256color-themes-molokai-terminal-theme/
-
+! xrdb -load ~/.Xresources
 ! Allow xterm to report the TERM variable correctly.
 ! Do not set the TERM variable from your ~/.bashrc or ~/.bash_profile or similar file.
 ! The terminal itself should report the correct TERM to the system so that the proper terminfo file will be used.
@@ -14,6 +14,9 @@ XTerm.termName: xterm-256color
 ! set font and fontsize
 XTerm*faceName: Iosevka Term 
 XTerm*faceSize: 14
+
+!sane clipboard settings
+XTerm*selectToClipboard: true
 
 !Settings
 ! disable fullscreen hotkey alt+enter (hotkey conflicts with weechat, midnight commander ...etc)
