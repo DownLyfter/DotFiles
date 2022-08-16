@@ -35,8 +35,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # autorun
-exec x--no-startup-id xrandr --output DP-4 --mode 1920x1080 --rate 240
-exec x--no-startup-id xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
+exec xrandr --output DP-4 --mode 1920x1080 --rate 240
+exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
+exec betterlockscreen -l dimblur 90
 gaps inner 10
 default_border pixel 4
 default_floating_border pixel 0
@@ -49,7 +50,7 @@ exec_always --no-startup-id '/home/matoi/.config/autorun/PreMid.AppImage'
 
 
 #fonts
-font pango:DejaVuSans, FontAwesome 8
+font pango:Iosevka, FontAwesome 8
 
 #Lockscreen
 bindsym $mod+Shift+l exec --no-startup-id betterlockscreen -l dimblur 90 
@@ -65,7 +66,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id xterm -ls -xrm 'XTerm*selectToClipboard: true'
+bindsym $mod+Return exec --no-startup-id alacritty
+#bindsym $mod+Return exec --no-startup-id xterm -ls -xrm 'XTerm*selectToClipboard: true'
 # Start discord
 bindsym $mod+d exec --no-startup-id discord
 # Start firefox
@@ -190,12 +192,14 @@ assign [class="steam_app_548430"] $ws9
 assign [class="osu!.exe"] $ws1
 assign [class="XIVLauncher.Core"] $ws5
 assign [class="ffxiv_dx11.exe"] $ws5
+assign [class="lutris"] $w5
+assign [class="steam_app_242760"] $ws5
 
 # open in hell
 assign [class="orgin.exe"] $hell
 
 # switch to hell
-bindsym $mod+Control+Shift+h exec x--no-startup-id "~/.config/scripts/hell.sh"
+bindsym $mod+Control+Shift+h exec --no-startup-id "~/.config/scripts/hell.sh"
 bindsym $mod+Control+Shift+l move container to workspace $hell
 
 # always floating
@@ -209,7 +213,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec x--no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -241,11 +245,12 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar 	{
-	font pango:Iosevka Term Slab 10  
-	tray_output none
+	status_command /home/matoi/.config/scripts/conky
+	font pango:Iosevka Term Slab 10
+	#tray_output none
 	i3bar_command i3bar --transparency
 	position top
-        status_command i3blocks -c /home/matoi/.config/i3blocks/i3blocks.conf
+        #status_command i3blocks -c /home/matoi/.config/i3blocks/i3blocks.conf
 colors {
 background #181819BF
 statusline #FFFFFF
