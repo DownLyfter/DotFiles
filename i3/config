@@ -37,16 +37,15 @@ exec --no-startup-id nm-applet
 # autorun
 exec xrandr --output DP-4 --mode 1920x1080 --rate 240
 exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
-exec betterlockscreen -l dimblur 90
+#exec betterlockscreen -l dimblur 90
 gaps inner 10
 default_border pixel 4
 default_floating_border pixel 0
 exec --no-startup-id betterlockscreen -w dim 50
-#exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/
+exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/
 exec --no-startup-id picom -CGb
 #exec_always --no-startup-id discord
 exec --no-startup-id '~/.config/autorun/PreMid.AppImage'
-
 
 #fonts
 font pango:Iosevka, FontAwesome 8
@@ -68,6 +67,8 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id alacritty
 #bindsym $mod+Return exec --no-startup-id xterm -ls -xrm 'XTerm*selectToClipboard: true'
 # Start discord
+
+bindsym $mod+Shift+p exec xrandr --output DP-4 --mode 1920x1080 --rate 240
 bindsym $mod+d exec --no-startup-id discord
 # Start firefox
 bindsym $mod+f exec --no-startup-id firefox
@@ -197,6 +198,10 @@ assign [class="Steam"] $ws10
 assign [class="steam_app_548430"] $ws9
 assign [class="osu!.exe"] $ws1
 assign [class="XIVLauncher.Core"] $ws5
+assign [class="Minecraft 1.19.2"] $ws5
+assign [class="GregTech: New Horizon"] $ws5
+assign [class="GT New Horizons"] $ws5
+assign [class="Technic Launcher"] $ws5
 assign [class="ffxiv_dx11.exe"] $ws5
 assign [class="lutris"] $w5
 assign [class="steam_app_242760"] $ws5
