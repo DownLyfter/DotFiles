@@ -1,0 +1,4 @@
+lutris
+overwatch
+shader
+checksum_v1 = 82c77ddc3b68f5137d9dfc1ae0cf2893

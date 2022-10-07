@@ -1,0 +1,16 @@
+{
+	"all": {
+		"batch": {
+			"guilds": true,
+			"muted": false,
+			"dms": false
+		},
+		"blacklist": [
+			"713589529994592338"
+		],
+		"general": {
+			"addClearButton": true,
+			"confirmClear": false
+		}
+	}
+}

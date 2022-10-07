@@ -1,0 +1,18 @@
+[2022-09-12 17:25:30.660] [exthost] [info] Extension host with pid 4930 started
+[2022-09-12 17:25:30.660] [exthost] [info] Skipping acquiring lock for /home/flandre/.config/Code/User/workspaceStorage/8bf8f522934e0657a8492c3fe49b323f.
+[2022-09-12 17:25:30.729] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:javascript'
+[2022-09-12 17:25:30.736] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-09-12 17:25:30.737] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-09-12 17:25:30.739] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-09-12 17:25:30.741] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm, startup: true, activationEvent: 'workspaceContains:package.json'
+[2022-09-12 17:25:30.880] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+[2022-09-12 17:25:30.962] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-09-12 17:25:30.976] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-09-12 17:25:31.027] [exthost] [info] Eager extensions activated
+[2022-09-12 17:25:31.048] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+[2022-09-12 17:25:31.058] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:31.061] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-09-12 17:25:39.087] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:25:39.090] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+[2022-09-12 17:27:34.588] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-09-12 17:27:34.598] [exthost] [info] Extension host with pid 4930 exiting with code 0

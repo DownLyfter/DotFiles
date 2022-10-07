@@ -1,0 +1,39 @@
+{
+    "currentVersionInfo": {
+        "version": "1.6.12",
+        "hasShownChangelog": true
+    },
+    "settings": {
+        "ui": {
+            "imageIndex": true,
+            "navButtons": true,
+            "infoFilename": true,
+            "infoResolution": true,
+            "infoSize": true,
+            "loadFull": false
+        },
+        "behavior": {
+            "searchAPI": true,
+            "hoverSearch": false,
+            "debug": false
+        },
+        "chat": {
+            "scale": true,
+            "resize": true
+        },
+        "zoom": {
+            "enabled": true,
+            "enableMode": 0,
+            "interp": false,
+            "round": true,
+            "outOfBounds": false,
+            "outOfScreen": false,
+            "smoothing": true,
+            "zoomMultiplier": 10,
+            "noLimits": false
+        }
+    },
+    "hidden": {
+        "panelWH": 500
+    }
+}

@@ -1,0 +1,27 @@
+2022/10/06-04:49:03.292 2a90 Reusing MANIFEST /home/flandre/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2022/10/06-04:49:03.292 2a90 Recovering log #566
+2022/10/06-04:49:03.292 2a90 Reusing old log /home/flandre/.config/discord/Local Storage/leveldb/000566.log 
+2022/10/06-04:56:57.760 2a9f Level-0 table #572: started
+2022/10/06-04:56:57.763 2a9f Level-0 table #572: 20197 bytes OK
+2022/10/06-04:56:57.766 2a9f Delete type=0 #566
+2022/10/06-06:05:33.628 2a9f Level-0 table #574: started
+2022/10/06-06:05:33.639 2a9f Level-0 table #574: 122440 bytes OK
+2022/10/06-06:05:33.642 2a9f Delete type=0 #571
+2022/10/06-08:25:22.744 2a90 Level-0 table #576: started
+2022/10/06-08:25:22.754 2a90 Level-0 table #576: 22358 bytes OK
+2022/10/06-08:25:22.758 2a90 Delete type=0 #573
+2022/10/06-08:27:29.697 2a9f Level-0 table #578: started
+2022/10/06-08:27:29.707 2a9f Level-0 table #578: 125068 bytes OK
+2022/10/06-08:27:29.710 2a9f Delete type=0 #575
+2022/10/06-08:27:29.710 2a9f Compacting 4@0 + 1@1 files
+2022/10/06-08:27:29.723 2a9f Generated table #579@0: 91 keys, 2366897 bytes
+2022/10/06-08:27:29.723 2a9f Compacted 4@0 + 1@1 files => 2366897 bytes
+2022/10/06-08:27:29.726 2a9f compacted to: files[ 0 2 0 0 0 0 0 ]
+2022/10/06-08:27:29.726 2a9f Delete type=2 #568
+2022/10/06-08:27:29.726 2a9f Delete type=2 #578
+2022/10/06-08:27:29.726 2a9f Delete type=2 #572
+2022/10/06-08:27:29.727 2a9f Delete type=2 #576
+2022/10/06-08:27:29.727 2a9f Delete type=2 #574
+2022/10/06-09:14:42.417 2a90 Level-0 table #581: started
+2022/10/06-09:14:42.431 2a90 Level-0 table #581: 1119712 bytes OK
+2022/10/06-09:14:42.436 2a90 Delete type=0 #577

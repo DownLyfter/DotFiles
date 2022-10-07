@@ -1,0 +1,12 @@
+[2022-09-12 17:25:29.773] [main] [info] update#setState idle
+[2022-09-12 17:25:30.443] [main] [info] Starting extension host with pid 4930 (fork() took 3 ms).
+[2022-09-12 17:25:39.605] [main] [info] Starting extension host with pid 5112 (fork() took 3 ms).
+[2022-09-12 17:25:41.085] [main] [info] Extension host with pid 5112 exited with code: 0, signal: null.
+[2022-09-12 17:25:58.227] [main] [info] Starting extension host with pid 5183 (fork() took 4 ms).
+[2022-09-12 17:25:59.773] [main] [info] update#setState checking for updates
+[2022-09-12 17:25:59.827] [main] [info] update#setState idle
+[2022-09-12 17:26:07.934] [main] [info] Extension host with pid 5183 exited with code: 0, signal: null.
+[2022-09-12 17:26:17.202] [main] [info] Starting extension host with pid 5253 (fork() took 4 ms).
+[2022-09-12 17:27:34.606] [main] [info] Extension host with pid 4930 exited with code: 0, signal: null.
+[2022-09-12 17:51:23.096] [main] [info] Waiting for extension host with pid 5253 to exit.
+[2022-09-12 17:51:23.097] [main] [info] Extension host with pid 5253 exited with code: 0, signal: null.

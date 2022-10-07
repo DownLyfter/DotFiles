@@ -1,0 +1,104 @@
+{
+	"window-size": {
+		"width": 1892,
+		"height": 1021
+	},
+	"url": "https://music.youtube.com/watch?v=bWeJmCA1otk&list=RDAMVM8rcpLVw9ML8&index=0",
+	"options": {
+		"tray": false,
+		"appVisible": true,
+		"autoUpdates": true,
+		"hideMenu": false,
+		"startAtLogin": false,
+		"disableHardwareAcceleration": true,
+		"restartOnConfigChanges": false,
+		"trayClickPlayPause": false,
+		"autoResetAppCache": false,
+		"resumeOnStart": true,
+		"proxy": ""
+	},
+	"plugins": {
+		"navigation": {
+			"enabled": true
+		},
+		"adblocker": {
+			"enabled": true,
+			"cache": true,
+			"additionalBlockLists": []
+		},
+		"shortcuts": {
+			"enabled": false,
+			"overrideMediaKeys": false
+		},
+		"downloader": {
+			"enabled": true,
+			"ffmpegArgs": [],
+			"preset": "mp3",
+			"downloadFolder": "/home/flandre/Music/YouTube"
+		},
+		"last-fm": {
+			"enabled": false,
+			"api_root": "http://ws.audioscrobbler.com/2.0/",
+			"api_key": "04d76faaac8726e60988e14c105d421a",
+			"secret": "a5d2a36fdf64819290f6982481eaffa2"
+		},
+		"discord": {
+			"enabled": false,
+			"activityTimoutEnabled": true,
+			"activityTimoutTime": 600000,
+			"listenAlong": true
+		},
+		"notifications": {
+			"enabled": false,
+			"unpauseNotification": false,
+			"urgency": "normal",
+			"interactive": false
+		},
+		"precise-volume": {
+			"enabled": false,
+			"steps": 1,
+			"arrowsShortcut": true,
+			"globalShortcuts": {
+				"volumeUp": "",
+				"volumeDown": ""
+			}
+		},
+		"sponsorblock": {
+			"enabled": false,
+			"apiURL": "https://sponsor.ajay.app",
+			"categories": [
+				"sponsor",
+				"intro",
+				"outro",
+				"interaction",
+				"selfpromo",
+				"music_offtopic"
+			]
+		},
+		"video-toggle": {
+			"enabled": false,
+			"mode": "custom",
+			"forceHide": true
+		},
+		"picture-in-picture": {
+			"enabled": false,
+			"alwaysOnTop": true,
+			"savePosition": true,
+			"saveSize": false,
+			"hotkey": "P"
+		},
+		"quality-changer": {
+			"enabled": true
+		}
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "1.18.0"
+		}
+	},
+	"window-maximized": false,
+	"window-position": {
+		"x": 14,
+		"y": 45
+	}
+}

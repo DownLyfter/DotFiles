@@ -2,4 +2,4 @@
 echo '{"version":1}'
 echo '['
 echo '[],'
-exec conky -c /home/matoi/.config/.conkyrc
+exec conky -c ~/.config/.conkyrc

@@ -1,0 +1,7 @@
+[2022-09-12 17:25:30.762] [sharedprocess] [info] Starting worker process with pid 4983 (type: fileWatcher, window: 1).
+[2022-09-12 17:25:39.621] [sharedprocess] [info] Starting worker process with pid 5114 (type: fileWatcher, window: 3).
+[2022-09-12 17:25:41.086] [sharedprocess] [info] Worker process with pid 5114 terminated normally (type: fileWatcher, window: 3).
+[2022-09-12 17:25:58.426] [sharedprocess] [info] Starting worker process with pid 5202 (type: fileWatcher, window: 4).
+[2022-09-12 17:26:07.931] [sharedprocess] [info] Worker process with pid 5202 terminated normally (type: fileWatcher, window: 4).
+[2022-09-12 17:26:17.393] [sharedprocess] [info] Starting worker process with pid 5272 (type: fileWatcher, window: 5).
+[2022-09-12 17:27:34.606] [sharedprocess] [info] Worker process with pid 4983 terminated normally (type: fileWatcher, window: 1).
