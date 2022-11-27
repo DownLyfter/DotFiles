@@ -34,22 +34,26 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # autorun
-exec exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
-#exec betterlockscreen -l dimblur 90
+#exec_always noisetorch -o #This run noise torch to suppress the default input device.
+exec exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1 #This disables mouse accelration
+#exec betterlockscreen -l dimblur 90 // Used to be lock screen now just stays here bloating this file.
+#i3 defaults below
 gaps inner 10
 default_border pixel 4
 default_floating_border pixel 0
-exec --no-startup-id betterlockscreen -w dim 50
-exec --no-startup-id feh --bg-scale ~/.config/i3/wallpapers/
-exec_always --no-startup-id picom -b --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350
-#exec_always --no-startup-id discord
-exec_always --no-startup-id ~/.config/autorun/PreMid.AppImage --no-sandbox
-exec xrandr --output DP-4 --mode 1920x1080 --rate 240
+#autorun 2.0
+#exec --no-startup-id betterlockscreen -w dim 50 // This is now bloat and I will not debloat it
+exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers/
+#hotkey to switch backgrounds
+bindsym $mod+Shift+m exec feh --bg-fill --randomize ~/.config/i3/wallpapers/
+exec_always --no-startup-id picom -b --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 #I love animations
+#exec_always --no-startup-id ~/.config/autorun/PreMid.AppImage --no-sandbox
+exec xrandr --output DP-4 --mode 1920x1080 --rate 240 # Sets default monitor
 #fonts
 font pango:Iosevka, FontAwesome 8
 
 #Lockscreen
-bindsym $mod+Shift+l exec --no-startup-id betterlockscreen -l dimblur 90 
+#bindsym $mod+Shift+l exec --no-startup-id betterlockscreen -l dimblur 90 
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -58,6 +62,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -65,9 +70,12 @@ floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id alacritty
 #bindsym $mod+Return exec --no-startup-id xterm -ls -xrm 'XTerm*selectToClipboard: true'
-# Start discord
+#GTA V Solo Session
+bindsym $mod+Shift+y exec "~/.config/scripts/solo.sh"
+# Change Monitors Hrz
 bindsym $mod+Shift+i exec xrandr --output DP-4 --mode 1920x1080 --rate 240
 bindsym $mod+Shift+o exec xrandr --output DP-4 --mode 1920x1080 --rate 60
+# Start Discord
 bindsym $mod+d exec --no-startup-id discord
 # Start firefox
 bindsym $mod+f exec --no-startup-id firefox
@@ -75,7 +83,7 @@ bindsym $mod+f exec --no-startup-id firefox
 bindsym $mod+s exec --no-startup-id steam
 # kill focused window
 bindsym $mod+Shift+q kill
-
+bindsym $mod+Shift+Control+q kill -9
 # start dmenu (a program launcher)
 # bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 # bindsym mod3 exec --no-startup-id dmenu_run
@@ -195,8 +203,12 @@ assign [class="firefox"] $ws2
 assign [class="discord"] $ws3
 assign [class="Steam"] $ws10
 assign [class="steam_app_548430"] $ws9
-assign [class="osu!.exe"] $ws1
 # Games
+assign [class="overwatch.exe"] $ws5
+assign [class="battle.net.exe"] $ws5
+assign [class="steam_app_526870"] $ws5
+assign [class="fatal"] $ws5
+assign [class="steam_app_794260"] $ws5
 assign [class="steam_app_595520"] $ws5
 assign [class="steam_app_637650"] $ws5
 assign [class="steam_app_1063730"] $ws5
@@ -208,7 +220,7 @@ assign [class="Minecraft 1.7.10"] $ws5
 assign [class="GT New Horizons"] $ws5
 assign [class="Technic Launcher"] $ws5
 assign [class="ffxiv_dx11.exe"] $ws5
-assign [class="lutris"] $w5
+assign [class="Lutris"] $ws5
 assign [class="steam_app_242760"] $ws5
 assign [class="plutonium-launcher-win32.exe"] $ws5
 assign [class="kdeconnect.sms"] $ws6
