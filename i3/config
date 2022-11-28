@@ -41,6 +41,7 @@ exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1 #This
 gaps inner 5
 default_border pixel 5
 default_floating_border pixel 5
+
 #autorun 2.0
 #exec --no-startup-id betterlockscreen -w dim 50 // This is now bloat and I will not debloat it
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers/
@@ -49,6 +50,7 @@ bindsym $mod+Shift+m exec feh --bg-fill --randomize ~/.config/i3/wallpapers/
 exec_always --no-startup-id picom -b --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 #I love animations
 #exec_always --no-startup-id ~/.config/autorun/PreMid.AppImage --no-sandbox
 exec xrandr --output DP-4 --mode 1920x1080 --rate 240 # Sets default monitor
+exec_always --no-startup-id "~/.config/gitupdater.sh"
 #fonts
 font pango:Iosevka, FontAwesome 8
 
