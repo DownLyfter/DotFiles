@@ -34,13 +34,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # autorun
-#exec_always noisetorch -o #This run noise torch to suppress the default input device.
-exec exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1 #This disables mouse accelration
+exec noisetorch -s alsa_input.usb-Creative_Technology_Ltd_Sound_Blaster_X4_85E16D5ED08B0DBC-03.analog-stereo -i
+exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1 #This disables mouse accelration
 #exec betterlockscreen -l dimblur 90 // Used to be lock screen now just stays here bloating this file.
 #i3 defaults below
-gaps inner 10
-default_border pixel 4
-default_floating_border pixel 0
+gaps inner 5
+default_border pixel 5
+default_floating_border pixel 5
 #autorun 2.0
 #exec --no-startup-id betterlockscreen -w dim 50 // This is now bloat and I will not debloat it
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers/
