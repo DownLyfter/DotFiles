@@ -37,6 +37,7 @@ exec --no-startup-id nm-applet
 exec noisetorch -s alsa_input.usb-Creative_Technology_Ltd_Sound_Blaster_X4_85E16D5ED08B0DBC-03.analog-stereo -i
 exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1 #This disables mouse accelration
 #exec betterlockscreen -l dimblur 90 // Used to be lock screen now just stays here bloating this file.
+
 #i3 defaults below
 gaps inner 5
 default_border pixel 5
@@ -95,9 +96,6 @@ bindsym $mod+Shift+Control+q kill -9
 # A more modern dmenu replacement is rofi:
 bindsym $mod+Shift+d exec --no-startup-id rofi -show drun -theme .config/rofi/launchers/type-2/style-3.rasi
 # cope I don't use dmenu
-
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -158,8 +156,8 @@ bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow)
 bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
 ## Clipboard Screenshots
-bindsym Ctrl+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+#bindsym Ctrl+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Define names for default workspaces for which we configure key bindings later on.
