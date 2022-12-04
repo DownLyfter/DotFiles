@@ -95,9 +95,6 @@ img:not([src]), img[src=""], img[src="null"] {
 	font-size: 12px;
 	font-weight: 400;
 }
-[REPLACE_CLASS_h5][REPLACE_CLASS_marginreset] {
-	flex: 1 1 auto;
-}
 
 [REPLACE_CLASS_switch][REPLACE_CLASS_switchmini] {
 	width: 26px;
@@ -129,7 +126,6 @@ img:not([src]), img[src=""], img[src="null"] {
 	margin-bottom: 0;
 }
 [REPLACE_CLASS_collapsecontainertitle] {
-	flex: 1 1 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -471,6 +467,24 @@ img:not([src]), img[src=""], img[src="null"] {
 
 [REPLACE_CLASS_userpopoutheaderbottag] {
 	margin-top: 4px !important;
+}
+[REPLACE_CLASS_userinfodate] {
+	color: var(--header-secondary);
+	margin-top: 8px;
+	user-select: text;
+}
+[REPLACE_CLASS_userprofilenametag] + [REPLACE_CLASS_userinfodate],
+[REPLACE_CLASS_userinfodate] + [REPLACE_CLASS_userinfodate] {
+	margin-top: 0;
+}
+[REPLACE_CLASS_userinfodate] + *:not([REPLACE_CLASS_userinfodate]) {
+	margin-top: 6px;
+}
+[REPLACE_CLASS_userprofile] [REPLACE_CLASS_userinfodate] {
+	margin-left: 16px;
+}
+[REPLACE_CLASS_userprofile] [REPLACE_CLASS_userinfodate]:last-child {
+	margin-bottom: 16px;
 }
 
 [REPLACE_CLASS_avatardisabled] {
@@ -1061,9 +1075,7 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 	background: rgba(0, 0, 0, 0.1);
 	border: none;
 	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
-	flex: 1 1 auto;
-	margin: 0;
-	padding: 16px 16px 0 16px;
+	padding-right: 12px;
 }
 [REPLACE_CLASS_themedark] [REPLACE_CLASS_modalwrapper] [REPLACE_CLASS_tabbarcontainer] {
 	background: rgba(0, 0, 0, 0.2);
@@ -1450,8 +1462,19 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 	}
 }
 
-[REPLACE_CLASS_peoplesnowplayingmember] [REPLACE_CLASS_nametag] {
-	pointer-events: none;
+[REPLACE_CLASS_usersettingssociallink][href*="/Lightcord/" i]::before {
+	content: "" !important;
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+	position: fixed !important;
+	top: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	left: 0 !important;
+	background: #18191c linear-gradient(var(--background-floating), var(--background-floating)) !important;
+	-webkit-app-region: drag !important;
+	z-index: 1000000 !important;
 }
 
 .platform-win [REPLACE_CLASS_toasts] {

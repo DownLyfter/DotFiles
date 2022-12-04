@@ -1,5 +1,9 @@
 /**
  * @name StickerSnatcher
+ * @description Allows for easy sticker saving.
+ * @version 1.1.2
+ * @author ImTheSquid
+ * @authorId 262055523896131584
  * @website https://github.com/ImTheSquid/StickerSnatcher
  * @source https://raw.githubusercontent.com/ImTheSquid/StickerSnatcher/master/StickerSnatcher.plugin.js
  */
@@ -26,86 +30,99 @@
     WScript.Quit();
 
 @else@*/
-
-module.exports = (() => {
-    const config = {"info":{"name":"StickerSnatcher","authors":[{"name":"ImTheSquid","discord_id":"262055523896131584","github_username":"ImTheSquid","twitter_username":"ImTheSquid11"}],"version":"1.1.1","description":"Allows for easy sticker saving.","github":"https://github.com/ImTheSquid/StickerSnatcher","github_raw":"https://raw.githubusercontent.com/ImTheSquid/StickerSnatcher/master/StickerSnatcher.plugin.js"},"changelog":[{"title":"Fixes","items":["Made sure PNGs aren't needlessly reconverted on copy."]}],"main":"index.js"};
-
-    return !global.ZeresPluginLibrary ? class {
-        constructor() {this._config = config;}
-        getName() {return config.info.name;}
-        getAuthor() {return config.info.authors.map(a => a.name).join(", ");}
-        getDescription() {return config.info.description;}
-        getVersion() {return config.info.version;}
-        load() {
-            BdApi.showConfirmationModal("Library Missing", `The library plugin needed for ${config.info.name} is missing. Please click Download Now to install it.`, {
-                confirmText: "Download Now",
-                cancelText: "Cancel",
-                onConfirm: () => {
-                    require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
-                        if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
-                        await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
+const config = {
+    info: {
+        name: "StickerSnatcher",
+        authors: [
+            {
+                name: "ImTheSquid",
+                discord_id: "262055523896131584",
+                github_username: "ImTheSquid",
+                twitter_username: "ImTheSquid11"
+            }
+        ],
+        version: "1.1.2",
+        description: "Allows for easy sticker saving.",
+        github: "https://github.com/ImTheSquid/StickerSnatcher",
+        github_raw: "https://raw.githubusercontent.com/ImTheSquid/StickerSnatcher/master/StickerSnatcher.plugin.js"
+    },
+    changelog: [
+        {
+            title: "Fixes",
+            items: [
+                "Fixed for BD 1.8.0"
+            ]
+        }
+    ],
+    main: "index.js"
+};
+class Dummy {
+    constructor() {this._config = config;}
+    start() {}
+    stop() {}
+}
+ 
+if (!global.ZeresPluginLibrary) {
+    BdApi.showConfirmationModal("Library Missing", `The library plugin needed for ${config.name ?? config.info.name} is missing. Please click Download Now to install it.`, {
+        confirmText: "Download Now",
+        cancelText: "Cancel",
+        onConfirm: () => {
+            require("request").get("https://betterdiscord.app/gh-redirect?id=9", async (err, resp, body) => {
+                if (err) return require("electron").shell.openExternal("https://betterdiscord.app/Download?id=9");
+                if (resp.statusCode === 302) {
+                    require("request").get(resp.headers.location, async (error, response, content) => {
+                        if (error) return require("electron").shell.openExternal("https://betterdiscord.app/Download?id=9");
+                        await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), content, r));
                     });
+                }
+                else {
+                    await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
                 }
             });
         }
-        start() {}
-        stop() {}
-    } : (([Plugin, Api]) => {
-        const plugin = (Plugin, Library) => {
+    });
+}
+ 
+module.exports = !global.ZeresPluginLibrary ? Dummy : (([Plugin, Api]) => {
+     const plugin = (Plugin, Library) => {
     "use strict";
 
-    const {Patcher, WebpackModules, ContextMenu, DiscordModules} = Library;
-    const {Dispatcher} = DiscordModules;
+    const {Patcher} = Library;
+    const {ContextMenu, Webpack} = BdApi;
 
     class StickerSnatcher extends Plugin {
         onStart() {
-            this.messageContextMenu = WebpackModules.find(mod => mod.default?.displayName === "MessageContextMenu");
-            this.imageUtils = WebpackModules.getByProps("copyImage", "saveImage");
-            this.stickerComponent = WebpackModules.find(mod => mod.default?.displayName === "Sticker");
-            this.stickerMod = WebpackModules.getByProps("isStandardSticker");
-            this.master = WebpackModules.getByProps("app", "clipboard", "features", "fileManager");
+            this.getStickerById = Webpack.getModule(Webpack.Filters.byProps("getStickerById")).getStickerById;
+            this.copyImage = Webpack.getModule(Webpack.Filters.byProps("copyImage")).copyImage;
             this.canvas = document.createElement("canvas");
 
-            // Make sure Nitro stickers are not selectable
-            this.standardStickers = new Set();
-            Patcher.after(this.stickerComponent, "default", (_, [arg], ret) => {
-                if (this.stickerMod.isStandardSticker(arg.sticker)) {
-                    this.standardStickers.add(arg.sticker.id);
+            this.unpatch = ContextMenu.patch("message", (tree, props) => {
+                // Make sure Nitro stickers are not selectable
+                if (props.message.stickerItems.length === 0 || this.getStickerById(props.message.stickerItems[0].id).type === 1) {
+                    return;
                 }
-            });
 
-            this.onChannelChange = _ => {
-                // Clear standard stickers to preserve memory
-                this.standardStickers.clear();
-            }
+                const url = `https://media.discordapp.net/stickers/${props.message.stickerItems[0].id}.${props.message.stickerItems[0].format_type === 1 ? "webp" : "png"}`;
 
-            Dispatcher.subscribe("CHANNEL_SELECT", this.onChannelChange);
-
-            ContextMenu.getDiscordMenu("MessageContextMenu").then(menu => {
-                Patcher.after(menu, "default", (_, [arg], ret) => {
-                    if (arg.message.stickerItems.length == 0 || arg.message.stickerItems.some(sticker => this.standardStickers.has(sticker.id) )) {
-                        return;
-                    }
-
-                    let url = this.stickerMod.getStickerAssetUrl(arg.message.stickerItems[0], {isPreview: false});
-    
-                    ret.props.children.splice(4, 0, ContextMenu.buildMenuItem({type: "separator"}), ContextMenu.buildMenuItem({label: "Copy Sticker", action: () => {
-                        let urlObj = new URL(url);
-                        if (urlObj.pathname.endsWith(".png")) {
-                            this.imageUtils.copyImage(url);
-                        } else {
-                            this.convertWebpToPng(url).then(buf => {
-                                // Could possibly use this.master.clipboard but I don't feel like it
-                                const electron = require("electron");
-                                electron.clipboard.writeImage(electron.nativeImage.createFromDataURL(buf));
-                            })
-                        }
-                    }}), ContextMenu.buildMenuItem({label: "Save Sticker", action: () => {
-                        this.downloadAndConvertImage(url).then(buf => {
-                            this.master.fileManager.saveWithDialog(new Uint8Array(buf), "sticker.png");
-                        });
-                    }}));
-                });
+                tree.props.children[2].props.children.push(
+                     ContextMenu.buildItem({type: "separator"}),
+                     ContextMenu.buildItem({label: "Copy Sticker", action: () => {
+                         let urlObj = new URL(url);
+                         if (urlObj.pathname.endsWith(".png")) {
+                             this.copyImage(url);
+                         } else {
+                             this.convertWebpToPng(url).then(dataURL => {
+                                 DiscordNative.clipboard.copyImage(new Uint8Array(Buffer.from(dataURL.split(",")[1], "base64")), "sticker.png");
+                             });
+                         }
+                     }}),
+                     ContextMenu.buildItem({label: "Save Sticker", action: () => {
+                         this.downloadAndConvertImage(url).then(buf => {
+                             DiscordNative.fileManager.saveWithDialog(new Uint8Array(buf), "sticker.png");
+                         });
+                     }}),
+                     ContextMenu.buildItem({type: "separator"})
+                 );
             });
         };
 
@@ -113,7 +130,7 @@ module.exports = (() => {
             const urlObj = new URL(url);
             
             // If URL ends with .png, no conversion needed so just download to specified path
-            let arrayBuf = null;
+            let arrayBuf;
             if (urlObj.pathname.endsWith(".png")) {
                 arrayBuf = await fetch(url).then(r => r.blob()).then(b => b.arrayBuffer());
             } else {
@@ -138,14 +155,13 @@ module.exports = (() => {
         }
 
         onStop() {
-            Dispatcher.unsubscribe("CHANNEL_SELECT", this.onChannelChange);
+            this.unpatch();
             Patcher.unpatchAll();
         };
     };
 
     return StickerSnatcher;
 };
-        return plugin(Plugin, Api);
-    })(global.ZeresPluginLibrary.buildPlugin(config));
-})();
+     return plugin(Plugin, Api);
+})(global.ZeresPluginLibrary.buildPlugin(config));
 /*@end@*/
