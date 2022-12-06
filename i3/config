@@ -88,7 +88,7 @@ bindsym $mod+s exec --no-startup-id steam
 # kill focused window
 bindsym $mod+Shift+q kill
 #multimc
-bindsym $mod+Shift+c exec --no-startup-id multimc
+bindsym $mod+m exec --no-startup-id multimc
 # start dmenu (a program launcher)
 # bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 # bindsym mod3 exec --no-startup-id dmenu_run
