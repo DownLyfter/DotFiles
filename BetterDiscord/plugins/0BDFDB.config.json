@@ -1,12 +1,12 @@
 {
 	"all": {
 		"changeLogs": {
-			"BDFDB": "3.0.1",
+			"BDFDB": "3.0.2",
 			"CreationDate": "1.4.7",
-			"PluginRepo": "2.4.2",
+			"PluginRepo": "2.4.3",
 			"ReadAllNotificationsButton": "1.7.3",
 			"ServerDetails": "1.1.4",
-			"ThemeRepo": "2.4.4"
+			"ThemeRepo": "2.4.5"
 		},
 		"choices": {
 			"toastPosition": "right"
