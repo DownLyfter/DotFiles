@@ -1,12 +1,12 @@
 {
 	"all": {
 		"changeLogs": {
-			"BDFDB": "3.0.2",
+			"BDFDB": "3.0.4",
 			"CreationDate": "1.4.7",
-			"PluginRepo": "2.4.3",
+			"PluginRepo": "2.4.5",
 			"ReadAllNotificationsButton": "1.7.3",
 			"ServerDetails": "1.1.4",
-			"ThemeRepo": "2.4.5"
+			"ThemeRepo": "2.4.8"
 		},
 		"choices": {
 			"toastPosition": "right"
@@ -18,8 +18,8 @@
 			"useChromium": false
 		},
 		"hashes": {
-			"0BDFDB.data.json": "ff2517e4e5d13a287aad000ec9e8efa76fde7a38",
-			"0BDFDB.raw.css": "5dc16ad797e91f028f95ec7a8c711a4aa8e0d2b4"
+			"0BDFDB.data.json": "8908388e1ff471e9ba8a5b87f319fea2e6bcd063",
+			"0BDFDB.raw.css": "a1c4a8b6f28c4765c6af2853ddf13a35922a2b9e"
 		}
 	}
 }
