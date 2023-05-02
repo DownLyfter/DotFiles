@@ -3,11 +3,11 @@ This is the repo that I store my config files and other usefull system files. Th
 
 # Goals
 - [x] Get Different OS's sorted
-- [] Arch git update script
-- [] Gentoo auto git update script
-- [] Installation Script
-- [] OS install scripts
-- [] auto updates
+- [ ] Arch git update script
+- [ ] Gentoo auto git update script
+- [ ] Installation Script
+- [ ] OS install scripts
+- [ ] auto updates
 
 
 # Installation
