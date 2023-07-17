@@ -5,17 +5,4 @@ This is the repo that I store my config files and other usefull system files. Th
 - [ ] Installation Script
 - [ ] auto updates
 
-# Installation
-## Arch Linux
-```
-Arch/.bashrc >> ~/.bashrc
-Arch/pacman.conf >> /etc/pacman.conf
-Relogin
-```
-
-## Gentoo Linux
-```
-Gentoo/.bashrc >> ~/.bashrc
-relogin
-```
 
