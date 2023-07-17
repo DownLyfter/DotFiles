@@ -16,13 +16,6 @@ cpu_avg_samples = 2,
 
 conky.text = [[
 [
-#Pacman
-{"full_text":" ","color":"\#AEB404","separator":false,"separator_block_width":6},\
-{"full_text":"[${execi 200 checkupdates | wc -l}]","color":"\#AEB404","separator":false,"separator_block_width":6},\
-
-#AUR
-{"full_text":" ","color":"\#AEB404","separator":false,"separator_block_width":6},\
-{"full_text":"[${execi 1900 cower -u | wc -l}]","color":"\#AEB404","separator":false,"separator_block_width":6},\
 
 #Kernel
 {"full_text":" ","color":"\#FF4000","separator":false,"separator_block_width":6},\
@@ -31,8 +24,17 @@ conky.text = [[
 
 #Wifi
 {"full_text":" ","color":"\#00FF00","separator":false,"separator_block_width":6},\
-{"full_text":"[${upspeed wlan0}]","color":"\#00FF00","separator":false,"separator_block_width":6},\
+{"full_text":"[${upspeed enp7s0}]","color":"\#00FF00","separator":false,"separator_block_width":6},\
 #{"full_text": ": [${upspeed wlan0}] ", "color":"\#00FF00", "separator": false, "separator_block_width":6},\
+
+
+#Public Ip
+{"full_text":"","color":"\#AEB404","separator":false,"separator_block_width":6},\
+{"full_text":"[${exec curl ifconfig.me}]","color":"\#00FF00","separator":false,"separator_block_width":6},\
+
+#Local Ip
+{"full_text":"","color":"\#AEB404","separator":false,"separator_block_width":6},\
+{"full_text":"[${exec ./.config/scripts/local-ip}]","color":"\#00FF00","separator":false,"separator_block_width":6},\
 
 #Finds current volume. May need modified depending on your setup
 #{"full_text":" ","color":"\#268BD2","separator":false,"separator_block_width":6},\
