@@ -5,4 +5,6 @@ This is the repo that I store my config files and other usefull system files. Th
 - [ ] Installation Script
 - [ ] auto updates
 
-
+# Installation
+cp -r DotFiles/* ~/.config/ 
+mv !/.config/.bashrc ~/
