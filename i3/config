@@ -36,7 +36,8 @@ exec --no-startup-id nm-applet
 # autorun
 exec noisetorch -s alsa_input.usb-Creative_Technology_Ltd_Sound_Blaster_X4_85E16D5ED08B0DBC-03.analog-stereo -i
 exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1 #This disables mouse accelration
-#exec betterlockscreen -l dimblur 90 // Used to be lock screen now just stays here bloating this file.
+exec_always --no-startup-id betterlockscreen -u ~/.config/i3/wallpapers
+bindsym $mod+shift+l exec betterlockscreen --lock dimblur --off 5 
 
 #i3 defaults below
 gaps inner 5
@@ -49,7 +50,7 @@ exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers/
 #hotkey to switch backgrounds
 bindsym $mod+Shift+m exec feh --bg-fill --randomize ~/.config/i3/wallpapers/
 exec_always --no-startup-id picom -b --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 #I love animations
-#exec_always --no-startup-id ~/.config/autorun/PreMid.AppImage --no-sandbox
+exec_always --no-startup-id ~/.config/autorun/PreMid.AppImage --no-sandbox
 exec xrandr --output DP-4 --mode 1920x1080 --rate 240 # Sets default monitor
 exec_always --no-startup-id "~/.config/gitupdater.sh" #This updates Git hub because I am lazy
 
@@ -80,7 +81,7 @@ bindsym $mod+Shift+y exec "~/.config/scripts/solo.sh"
 bindsym $mod+Shift+i exec xrandr --output DP-4 --mode 1920x1080 --rate 240
 bindsym $mod+Shift+o exec xrandr --output DP-4 --mode 1920x1080 --rate 60
 # Start Discord
-bindsym $mod+d exec --no-startup-id discord
+ bindsym $mod+d exec --no-startup-id discord
 # Start firefox
 bindsym $mod+f exec --no-startup-id firefox
 # Start steam
@@ -206,6 +207,7 @@ assign [class="discord"] $ws3
 assign [class="Steam"] $ws10
 assign [class="steam_app_548430"] $ws9
 # Games
+assign [class="steam_app_671860"] $ws5
 assign [class="overwatch.exe"] $ws5
 assign [class="battle.net.exe"] $ws5
 assign [class="steam_app_526870"] $ws5
