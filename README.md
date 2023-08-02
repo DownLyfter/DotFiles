@@ -7,4 +7,4 @@ This is the repo that I store my config files and other usefull system files. Th
 
 # Installation
 ```cp -r DotFiles/* ~/.config/ ```
-``` mv !/.config/.bashrc ~/ ```
+``` mv ~/.config/.bashrc ~/ ```
