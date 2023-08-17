@@ -205,8 +205,11 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="firefox"] $ws2
 assign [class="discord"] $ws3
 assign [class="Steam"] $ws10
-assign [class="steam_app_548430"] $ws9
+assign [class="steam_app_548430"] $ws5
 # Games
+assign [class="steam_app_637650"] $ws5
+assign [class="steam_app_1286680"] $ws5
+assign [class="steam_app_397540"] $ws5
 assign [class="steam_app_671860"] $ws5
 assign [class="overwatch.exe"] $ws5
 assign [class="battle.net.exe"] $ws5
