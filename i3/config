@@ -37,7 +37,7 @@ exec --no-startup-id nm-applet
 exec noisetorch -s alsa_input.usb-Creative_Technology_Ltd_Sound_Blaster_X4_85E16D5ED08B0DBC-03.analog-stereo -i
 exec_always xinput --set-prop "Glorious Model O" 'libinput Accel Speed' -1 #This disables mouse accelration
 exec_always --no-startup-id betterlockscreen -u ~/.config/i3/wallpapers
-bindsym $mod+shift+l exec betterlockscreen --lock dimblur --off 5 
+bindsym $mod+shift+l exec betterlockscreen --lock dimblur --off 60 
 
 #i3 defaults below
 gaps inner 5
@@ -49,8 +49,8 @@ default_floating_border pixel 5
 exec --no-startup-id feh --bg-fill --randomize ~/.config/i3/wallpapers/
 #hotkey to switch backgrounds
 bindsym $mod+Shift+m exec feh --bg-fill --randomize ~/.config/i3/wallpapers/
-exec_always --no-startup-id picom -b --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 #I love animations
-exec_always --no-startup-id ~/.config/autorun/PreMid.AppImage --no-sandbox
+exec_always --no-startup-id picom -b --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 
+#I love animations
 exec xrandr --output DP-4 --mode 1920x1080 --rate 240 # Sets default monitor
 exec_always --no-startup-id "~/.config/gitupdater.sh" #This updates Git hub because I am lazy
 
@@ -158,8 +158,8 @@ bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow)
 bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
 ## Clipboard Screenshots
-bindsym $mod+Ctrl+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym $mod+Ctrl+Shift+s exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+o exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -207,6 +207,8 @@ assign [class="discord"] $ws3
 assign [class="Steam"] $ws10
 assign [class="steam_app_548430"] $ws5
 # Games
+assign [class="Project Zomboid"] $ws5
+assign [class="Minecraft* 1.20.1"] $ws5
 assign [class="steam_app_637650"] $ws5
 assign [class="steam_app_1286680"] $ws5
 assign [class="steam_app_397540"] $ws5
