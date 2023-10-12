@@ -30,7 +30,7 @@ conky.text = [[
 
 #Public Ip
 {"full_text":"","color":"\#AEB404","separator":false,"separator_block_width":6},\
-{"full_text":"[${exec curl ifconfig.me}]","color":"\#00FF00","separator":false,"separator_block_width":6},\
+{"full_text":"[${execi 20 curl https://ipinfo.io/ip}]","color":"\#00FF00","separator":false,"separator_block_width":6},\
 
 #Local Ip
 {"full_text":"","color":"\#AEB404","separator":false,"separator_block_width":6},\

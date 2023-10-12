@@ -9,6 +9,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias opentablet='systemctl --user restart opentabletdriver'
 alias speedtest='/home/remilia/.config/scripts/speedtest.sh'
+alias cdpz='cd /home/remilia/.local/share/Steam/steamapps/common/ProjectZomboid'
 #alias wasm-pack='~/.cargo/bin/wasm-pack'
 PS1='[\u@\h \W]\$ '
 pfetch
