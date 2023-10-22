@@ -1,1 +1,1 @@
-ip addr | grep enp7s0 | grep inet | cut -b 10-19
+ip addr | grep wlan0 | grep inet | cut -b 10-19
